@@ -1,0 +1,41 @@
+O que é Docker?
+	- Plataforma aberta para desenvolvimento, distribuição e execução de aplicações em containers. Permite empacotar a aplicação junto com todas sua dependências(bibliotecas, serviços e configurações) em um ambiente isolado, garantindo que ela rode da mesma forma em qualquer lugar e é feito durante o desenvolvimento da aplicação.
+	- Acaba com o "na minha máquina funciona", pois elimina as diferenças entre os ambientes locais e os servidores.
+	- Coloca seu código, serviços, bibliotecas pra dentro de um container docker, possibilitando que, se ele funciona na sua máquina local, vai funcionar também no servidor, porque vai rodar no mesmo ambiente, porque o ambiente docker é unico.
+	- Permite separar suas aplicações da infraestrutura para que entregue software mais rápido.
+
+Docker Engine:
+	- Tecnologia de containerização para buildar e containerizar aplicação, ela possui:
+		Um servidor com um processo daemon >dockerd<.
+		APIs específicas para que programas possam conversar e dar instruções ao daemon.
+		Uma CLI.
+
+	- A CLI usa as APIs do Docker para se controlar ou interagir com o daemon através de scripts ou comandos diretos na CLI. O daemon cria e gerenciar objetos Docker, como imagens, containers, networks e volumes.
+
+Daemon: 
+	- Daemon é um processo que roda em segundo plano para executar determinadas tarefas sem interação direta do usuário.	
+	- O Docker daemon é o serviço responsável por gerenciar os containers, imagens, volumes e redes. Ele escuta as requisições da Docker CLI (docker), processa comandos e interage com o sistema operacional para criar e gerenciar containers. É o coração da plataforma.
+
+Docker vs VM:
+	- VM: Roda em servidor físico, utiliza mais memória e espaço, tem uma inicialização mais lenta pois precisa inicializar um sistema operacional completo, e para cada VM é necessária a instalação do OS próprio.
+	- Docker: Roda tanto em servidor físico e em VM's, utiliza menos espaço e memória, por ser um ambiente linux, não é necessária a instalação de um OS para cada container, pois compartilha o kernel do host, e tem uma inicialização bem mais rápida.
+
+Docker registries:
+	- Docker registry armazena imagens Docker.
+	- >docker pull< or >docker run< pega a imagem do registry configurado.
+	- >docker push< coloca sua imagem no registry configurado.
+
+Imagens no Docker:
+	- Uma imagem é a definição daquilo que um dia se tornará um container, a partir do momento que ele for executado. Imagens e containers estão diretamente ligados.
+	- Toda imagem docker é baseada no OS Linux. Então, primeiramente é definida o sistema operacional da imagem (debian, ubuntu, etc). (isto é a imagem base)
+	- A versão do OS da imagem não depende da versão do OS do host onde o Docker Engine vai estar rodando. e.g (imagem Debian, host Ubuntu).
+	- Imagem é a definição e o container é a imagem em execução.
+	- Geralmente uma imagem é baseada em outra imagem, mas com algumas customizações adicionais. Por exemplo, você pode criar uma imagem baseada numa imagem ubuntu, mas instalar Apache web server e sua aplicação, como algumas configurações adicionais necessária para sua aplicação rodar.
+	- Você pode criar sua própria imagem ou usar alguma criada e colocada no registry. Para criar sua própria, é necessário criar um Dockerfile para definir os passos necessários para criar a imagem e rodá-la. Cada instrução no Dockerfile cria uma camada da imagem. Quando você muda o Dockerfile e reconstrói a imagem, apenas as camadas que você mudou são reconstruídas.
+
+Containers no Docker:
+	- Instância executável da imagem. Pode criar, iniciar, parar, mover ou deletar usando API do Docker ou a CLI.
+	- Container é relativamente bem isolado de outros containers e do host, mas é possível controlar o quão isolado um container e seus subsistemsas são do outro.
+	- Container é definido pela sua imagem, além de qualquer outra configuração adicional dada ao criar ou iniciar.
+	- Container é "stateless", a imagem é imutável, ou seja, qualquer alteração feita dentro do container não é preservada após sua reinicialização ou remoção, a não ser que haja volumes persistentes.
+
