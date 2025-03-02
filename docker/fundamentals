@@ -1,0 +1,17 @@
+Comandos básicos:
+	- Olha o comandos-docker-cli no /assets.
+
+Docker run:
+	- docker run --name container_name -d -p 8088:80 docker/welcome-to-docker:latest
+		--name: nome do container, -d não attach do terminal, -p porta para acessar, docker/welcome... nome da imagem.
+	- O docker run sempre vai criar um novo container, para apenas rodar o container, deve se utilizar "docker start <nome do container>"
+
+docker ps:
+	- Listar containers em execução, se adicionar -a no final lista todos os containers.
+
+docker rm:
+	- Deletar container em execução, -f para forçar.
+
+docker container prune:
+	- Deletar todos os containers que estão parados.
+

@@ -39,3 +39,20 @@ Containers no Docker:
 	- Container é definido pela sua imagem, além de qualquer outra configuração adicional dada ao criar ou iniciar.
 	- Container é "stateless", a imagem é imutável, ou seja, qualquer alteração feita dentro do container não é preservada após sua reinicialização ou remoção, a não ser que haja volumes persistentes.
 
+Arquitetura do Docker:
+	- Client: CLI ou remote API, é onde lidar com o Docker.
+	- Engine/Host: possui o daemon, responsável por interpretar e executar os comandos do Docker.
+	- Registry: repositórios para imagens.
+ 
+	- Processos:
+		- build: Gerar uma imagem a partir do dockerfile.
+		- pull: Baixar uma imagem que não está na sua máquina.
+		- run: Rodar um container, transformar uma imagem em container.
+ 
+Configurando ambiente Docker:
+	Só baixar o Docker Desktop no site do Docker paizão
+	Docker Compose: cria uma composição, uma forma de subir vários containers de uma vez.
+ 
+Fundamentos:
+	- Docker run: docker run --name container_name -d -p 8088:80 docker/welcome-to-docker:latest
+		--name: nome do container, -d: não attach no terminal, -p: porta para acessar, docker/welcome... nome da imagem
